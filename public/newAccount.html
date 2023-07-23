@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to Focus Me</title>
+  <link rel="stylesheet" type="text/css" href="newAccountStyle.css">
+</head>
+<body>
+  <div class="container1">
+    <h2>Welcome to the Home Page</h2>
+    <div class="container2">
+      <form action="/create" method="POST">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div>
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div>
+          <label for="classNumber">Class Number:</label>
+          <input type="text" id="classNumber" name="classNumber" required>
+        </div>
+        <button type="submit">Create Account</button>
+      </form>
+      <a href="login.html">Return to login</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" type="text/css" href="loginStyle.css">
+</head>
+<body>
+  <div class="container1">
+   <h1>Login</h1>
+    <div class="container2">
+      <form action="http://localhost:4000/login" method="POST">
+       <div>
+         <label for="username">User Name:</label>
+         <input type="text" id="username" name="username" required>
+       </div>
+       <div>
+         <label for="password">Password:</label>
+         <input type="password" id="password" name="password" required>
+       </div>
+       <button type="submit">Log in</button>
+       <a href="newAccount.html">Create an account</a>
+       <a href="recoverPW.html">Forgot Password</a>
+     </form>
+     </div>
+     <h4>Version 1.0</h4>
+  </div>
+</body>
+</html>

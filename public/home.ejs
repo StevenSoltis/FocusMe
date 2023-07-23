@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>Administration</title>
+  <link rel="stylesheet" type="text/css" href="homeStyles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Welcome <%= user.username %>!</h1>
+  </header>
+  <% if (user && user.user_type === 'admin') { %>
+    <button>Admin Button</button>
+  
+  <% } else if (user && user.user_type === 'student') { %>
+    <button>Student Button</button>
+  <% } else if (user && user.user_type === 'professor') { %>
+    <button>Professor Button</button>
+  <% } %>
+
+  </footer>
+</body>
+</html>
