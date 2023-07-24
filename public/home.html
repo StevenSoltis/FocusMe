@@ -1,0 +1,57 @@
+<!-- HTML file -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <div id="dashboard-container"></div>
+
+  <script>
+
+    function loadDashboard(role) {
+      // dashboard content based on the user's role
+      const dashboardContainer = document.getElementById('dashboard-container');
+      let dashboardUrl;
+
+      if (role === 'admin') {
+        dashboardUrl = 'admin.html';
+      } else if (role === 'student') {
+        dashboardUrl = 'student.html';
+      } else if (role === 'professor') {
+        dashboardUrl = 'professor.html';
+      } else {
+        // Handle unknown or invalid roles
+        dashboardContainer.innerHTML = '<p>Access denied</p>';
+        return;
+      }
+
+      // AJAX request to load the dashboard content
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', dashboardUrl, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          dashboardContainer.innerHTML = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
+
+    // After successful login, make an AJAX request to get the user's role
+    fetch('/login', {
+      method: 'POST',
+      body: JSON.stringify({ username: 'example', password: 'example' }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        loadDashboard(data.role); // Load the appropriate dashboard based on the role
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+</html>

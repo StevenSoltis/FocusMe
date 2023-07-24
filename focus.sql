@@ -141,4 +141,8 @@
 -- INSERT INTO ROLES (role_id, role_name)
 -- VALUES ('1', 'Admin');
 
-SELECT * FROM ROLES;
+-- SELECT * FROM ROLES;
+
+-- .tables
+
+-- .schema USERS

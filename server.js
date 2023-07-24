@@ -43,31 +43,20 @@ app.post('/login', (req, res) => {
         return res.status(401).send('Invalid username or password');
       }
 
-      const roleId = row.role_id; 
+      const roleId = row.role_id;
 
-      db.get('SELECT * FROM ROLE WHERE id = ?', [roleId], (err, roleRow) => {
+      db.get('SELECT * FROM ROLES WHERE id = ?', [roleId], (err, roleRow) => {
         if (err) {
           console.error(err.message);
           return res.status(500).send('Internal Server Error');
         }
 
-        
         const user = { ...row, role: roleRow };
 
-        // Redirect to /home to render the home.ejs view after successful login
-        res.redirect('/home');
+        res.sendFile('home.html', { root: __dirname });
       });
     }
   );
-});
-
-// Route to render the home.ejs view
-app.get('/home', (req, res) => {
-  // Make sure you retrieve the 'user' object from the session or wherever you store it after login
-  const user = getUserFromSessionOrWherever(); // Replace this with your actual logic to get the user object
-
-
-  res.render('home', { user: user });
 });
 
 
