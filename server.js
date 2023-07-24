@@ -51,7 +51,12 @@ app.post('/login', (req, res) => {
           return res.status(500).send('Internal Server Error');
         }
 
-        const user = { ...row, role: roleRow };
+        const user = { ...row, role: roleRow.role_name };
+
+        // Endpoint to get the user's role after successful login
+        app.post('/get-user-role', (req, res) => {
+          res.json({ role: user.role });
+        });
 
         res.sendFile('home.html', { root: __dirname });
       });

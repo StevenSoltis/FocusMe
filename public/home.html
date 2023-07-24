@@ -1,14 +1,13 @@
-<!-- HTML file -->
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dashboard</title>
+  <title>Home Page</title>
 </head>
+<h1>Home Page</h1>
 <body>
   <div id="dashboard-container"></div>
 
   <script>
-
     function loadDashboard(role) {
       // dashboard content based on the user's role
       const dashboardContainer = document.getElementById('dashboard-container');
@@ -38,7 +37,7 @@
     }
 
     // After successful login, make an AJAX request to get the user's role
-    fetch('/login', {
+    fetch('/get-user-role', {
       method: 'POST',
       body: JSON.stringify({ username: 'example', password: 'example' }),
       headers: {
